@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CreateTodo from './components/CreateTodo';
+import TodoList from './components/TodoLists';
+import _todos from './mocks/todos.json';
 
 function App() {
+  const [todos, setTodos] = useState(_todos);
+
+  const handleComplete = todo => {
+    console.log({ todo });
+    const validTodos = todos.filter((_, idx) => idx !== todo);
+    setTodos(validTodos);
+  };
+
+  const addTodo = todo => {
+    setTodos([...todos, todo]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        width: '100vw',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <CreateTodo addTodo={addTodo} />
+      <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );
 }
