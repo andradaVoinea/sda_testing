@@ -12,6 +12,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "coverage": "react-scripts test --env=jsdom --watchAll=false --coverage",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

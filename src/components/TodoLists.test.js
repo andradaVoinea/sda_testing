@@ -2,6 +2,12 @@ import { render } from '@testing-library/react';
 import TodoList from './TodoLists';
 import userEvent from '@testing-library/user-event';
 
+jest.mock('./Todo', () => {
+  return ({ description, handleComplete, idx }) => {
+    return <div onClick={() => handleComplete(idx)}>{description}</div>;
+  };
+});
+
 describe('TodoList', () => {
   let utils;
   let handleCompleteSpy;

@@ -9,7 +9,7 @@ const CreateTodo = ({ addTodo }) => {
     >
       <label htmlFor="todoInput">Creaza todo</label>
       <input
-        placeholder="descriere"
+        placeholder="Descriere Todo"
         type="text"
         id="todoInput"
         name="todoInput"

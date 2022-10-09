@@ -7,7 +7,6 @@ function App() {
   const [todos, setTodos] = useState(_todos);
 
   const handleComplete = todo => {
-    console.log({ todo });
     const validTodos = todos.filter((_, idx) => idx !== todo);
     setTodos(validTodos);
   };
